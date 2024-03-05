@@ -1,0 +1,30 @@
+.ubuntu-condensed-regular {
+    font-family: "Ubuntu Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --color-primary: #030637;
+    --color-secondary: #222673;
+    --color-tirnary: #3C0753;
+
+    --color-text: #c9c9c9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+    background-image: linear-gradient(
+      to bottom right,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    color: var(--color-text);
+}
