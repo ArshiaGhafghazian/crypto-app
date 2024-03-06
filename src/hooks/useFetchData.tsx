@@ -25,7 +25,7 @@ const initialState: InitialStateType = {
 
 const reducer = (state: InitialStateType, action: ActionType) => {
     switch (action.type) {
-        case "PAGINATION":
+        case "LOADING":
             return { ...state, isLoading: true }
         case "SUCCESS":
             return { isLoading: false, data: action.payload, error: "" }
@@ -42,7 +42,7 @@ export const useFetchData = (page: number, currency: "usd" | "eur") => {
     const { data, isLoading, error } = state
 
     const getCoinsData = async () => {
-        dispatch({ type: "PAGINATION", payload: [] })
+        dispatch({ type: "LOADING", payload: [] })
         try {
             const response = await api.get(`coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=10&page=${page.toString()}&${API_KEY}`)
             dispatch({ type: "SUCCESS", payload: response.data })
