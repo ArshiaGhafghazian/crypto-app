@@ -1,5 +1,6 @@
 .container {
     width: 80%;
+    min-height: 620px;
     margin: 5px auto;
     padding-bottom: 10px;
     overflow: auto;

@@ -12,6 +12,7 @@ type TableProps = {
 
 const Table = ({ coins, currency, isLoading }: TableProps) => {
 
+    console.log(isLoading);
 
 
 
