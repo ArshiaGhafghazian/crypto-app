@@ -1,6 +1,6 @@
 .container {
-    width: 80%;
-    min-height: 620px;
+    width: 850px;
+    min-height: 510px;
     margin: 5px auto;
     padding-bottom: 10px;
     overflow: auto;
@@ -41,7 +41,7 @@
 
 .table th,
 .table td {
-    padding: 15px 30px;
+    padding: 10px 20px;
     white-space: nowrap;
 }
 
@@ -69,4 +69,10 @@
 .priceChange.decrease {
     background-color: rgb(165, 21, 21);
     color: rgb(220, 159, 159);
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: calc(100% - 50px);
+    }
 }

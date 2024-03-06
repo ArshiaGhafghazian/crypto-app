@@ -1,5 +1,6 @@
 import { CurrencyType } from "../pages/HomePage"
 import CoinsData from "../types/CoinsData.type"
+
 import styles from "./Table.module.css"
 
 type TableProps = {
@@ -18,19 +19,21 @@ const Table = ({ coins, currency, isLoading }: TableProps) => {
 
 
     return (
-        <div className={styles.container}>
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th>Coin</th>
-                        <th>Name</th>
-                        <th>Price <span>({currency})</span></th>
-                        <th>24H</th>
-                        <th>Total Volume</th>
-                    </tr>
-                </thead>
-                {isLoading ? "Loading..." :
-                    (<tbody>
+        <>
+
+            <div className={styles.container}>
+                <table className={styles.table}>
+                    <thead>
+                        <tr>
+                            <th>Coin</th>
+                            <th>Name</th>
+                            <th>Price <span>({currency})</span></th>
+                            <th>24H</th>
+                            <th>Total Volume</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
                         {coins.map(coin => (
                             <tr key={coin.id}>
                                 <td>
@@ -47,11 +50,12 @@ const Table = ({ coins, currency, isLoading }: TableProps) => {
                                 <td>$ {coin.total_volume.toLocaleString()}</td>
                             </tr>
                         ))}
-                    </tbody>)}
+                    </tbody>
 
 
-            </table>
-        </div>
+                </table>
+            </div>
+        </>
     )
 }
 
