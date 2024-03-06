@@ -28,9 +28,27 @@
 .table thead {
     border-bottom: 5px solid rgb(95, 95, 95);
 }
+.table thead select {
+    width: 40px;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    margin-left: 5px;
+    border: 1px solid rgb(84, 30, 161);
+    border-radius: 5px;
+}
+.table thead option {
+    width: 80px;
+    border: none;
+ 
+}
+
 
 .table tbody tr:nth-child(even) {
     background-color: rgb(84, 30, 161);
+
 }
 
 .table th {

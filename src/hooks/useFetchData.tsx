@@ -54,6 +54,6 @@ export const useFetchData = (page: number, currency: "usd" | "eur") => {
 
     useEffect(() => {
         getCoinsData()
-    }, [page])
+    }, [page,currency])
     return { data, isLoading, error }
 }
