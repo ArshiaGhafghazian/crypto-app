@@ -6,19 +6,22 @@ type PaginationProps = {
 }
 
 const Pagination = ({ pageNumber, setPageNumber }: PaginationProps) => {
-    console.log(pageNumber);
+
+    const nextPageHandler = () => {
+        if (pageNumber >= 30) return
+        setPageNumber(prev => prev + 1)
+    }
+    const previousPageHandler = () => {
+        if (pageNumber <= 1) return
+        setPageNumber(prev => prev - 1)
+    }
 
     return (
         <div className={styles.container}>
-            <button onClick={() => {
-                
-                setPageNumber(prev => prev - 1)
-            }} className={styles.button}>Previous</button>
+            <button onClick={previousPageHandler} className={styles.button} disabled={pageNumber == 1}>Previous</button>
             <span>{pageNumber}</span>
-            <button onClick={() => {
-                setPageNumber(prev => prev + 1)
-            }} className={styles.button}>next</button>
-        </div>
+            <button onClick={nextPageHandler} className={styles.button} disabled={pageNumber == 30}>next</button>
+        </div >
     )
 }
 

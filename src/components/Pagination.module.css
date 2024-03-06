@@ -16,6 +16,11 @@
     font-size: inherit;
     cursor: pointer;
 }
+.container .button:disabled,
+.container .button:disabled:hover {
+    background-color: rgb(131, 112, 158);
+    cursor: not-allowed;
+}
 
 .container .button:hover {
     background-color: rgba(85, 30, 161, 0.695);

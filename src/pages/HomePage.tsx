@@ -20,7 +20,7 @@ const HomePage = () => {
     return (
         <>
             {isLoading && <Spinner />}
-            <h1>Crypto App</h1>
+            <h1 style={{marginBottom:"30px"}}>Crypto App</h1>
             <Table coins={data} currency={currency} isLoading={isLoading} />
             <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
         </>
