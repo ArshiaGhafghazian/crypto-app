@@ -1,0 +1,71 @@
+.container {
+    width: 80%;
+    margin: 5px auto;
+    padding-bottom: 10px;
+    overflow: auto;
+}
+.container::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+.container::-webkit-scrollbar-track {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #aca2ac;
+}
+
+.container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgb(85, 30, 161);
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table thead {
+    border-bottom: 5px solid rgb(95, 95, 95);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgb(84, 30, 161);
+}
+
+.table th {
+    text-align: left;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.table th,
+.table td {
+    padding: 15px 30px;
+    white-space: nowrap;
+}
+
+.symbolContainer {
+    display: flex;
+    align-items: center;
+}
+
+.symbolContainer img {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.priceChange {
+    display: inline-block;
+    text-align: center;
+    min-width: 60px;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+.priceChange.increase {
+    background-color: rgb(76, 137, 76);
+    color: rgb(187, 244, 187);
+}
+.priceChange.decrease {
+    background-color: rgb(165, 21, 21);
+    color: rgb(220, 159, 159);
+}
