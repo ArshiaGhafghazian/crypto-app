@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from 'react'
 import CoinsData from '../types/CoinsData.type'
 import api from '../services/config'
+import { CurrencyType } from '../pages/HomePage'
 
 const API_KEY = "x_cg_demo_api_key=CG-ZyWD5vW2foiYE8WTsw4zHCqz"
 
@@ -37,7 +38,7 @@ const reducer = (state: InitialStateType, action: ActionType) => {
     }
 }
 
-export const useFetchData = (page: number, currency: "usd" | "eur") => {
+export const useFetchData = (page: number, currency: CurrencyType) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const { data, isLoading, error } = state
 
@@ -54,6 +55,6 @@ export const useFetchData = (page: number, currency: "usd" | "eur") => {
 
     useEffect(() => {
         getCoinsData()
-    }, [page,currency])
+    }, [page, currency])
     return { data, isLoading, error }
 }

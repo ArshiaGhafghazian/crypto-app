@@ -1,9 +1,20 @@
 .container {
+    
+    position: relative;
     width: 850px;
     min-height: 510px;
     margin: 5px auto;
     padding-bottom: 10px;
     overflow: auto;
+}
+.container .error {
+    position: absolute;
+    color: red;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    font-size: large;
+    font-weight: bold;
 }
 .container::-webkit-scrollbar {
     height: 10px;
@@ -42,13 +53,10 @@
 .table thead option {
     width: 80px;
     border: none;
- 
 }
-
 
 .table tbody tr:nth-child(even) {
     background-color: rgb(84, 30, 161);
-
 }
 
 .table th {

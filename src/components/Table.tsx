@@ -6,9 +6,10 @@ type TableProps = {
     coins: CoinsData[]
     currency: CurrencyType
     setCurrency: React.Dispatch<React.SetStateAction<CurrencyType>>
+    error: string
 }
 
-const Table = ({ coins, currency, setCurrency }: TableProps) => {
+const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
 
     const changeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCurrency(event.target.value as CurrencyType)
@@ -33,6 +34,7 @@ const Table = ({ coins, currency, setCurrency }: TableProps) => {
                         </tr>
                     </thead>
                     <tbody>
+                        {error && <p className={styles.error}>{error}</p>}
                         {coins.map(coin => (
                             <tr key={coin.id}>
                                 <td>
