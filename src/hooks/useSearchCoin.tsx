@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react"
+import { useEffect, useReducer } from "react"
 import SearchCoinsData from "../types/SearchCoinsData.type"
 import api from "../services/config"
 

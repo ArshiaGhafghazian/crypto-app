@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFetchData } from "../hooks/useFetchData"
 import Table from "../components/Table";
 import Pagination from "../components/Pagination";
