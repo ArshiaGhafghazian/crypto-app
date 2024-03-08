@@ -1,12 +1,16 @@
 import styles from "./Navbar.module.css"
 import SearchBar from "./SearchBar"
 
-const Navbar = () => {
+type NavbarProps = {
+    setId: React.Dispatch<React.SetStateAction<string>>
+}
+
+const Navbar = ({ setId }: NavbarProps) => {
     return (
         <nav className={styles.container}>
             <div className={styles.navbar}>
-                <h1>Crypto App</h1>
-                <SearchBar />
+                <h1>Crypto'Dorre</h1>
+                <SearchBar setId={setId}/>
             </div>
         </nav>
     )

@@ -1,19 +1,17 @@
-import { useEffect, useReducer } from 'react'
-import CoinsData from '../types/CoinsData.type'
-import api from '../services/config'
-import { CurrencyType } from '../pages/HomePage'
+import { useEffect, useReducer, useState } from "react"
+import SearchCoinsData from "../types/SearchCoinsData.type"
+import api from "../services/config"
 
 const API_KEY = "x_cg_demo_api_key=CG-ZyWD5vW2foiYE8WTsw4zHCqz"
-
 type InitialStateType = {
-    data: CoinsData[],
+    data: SearchCoinsData[],
     isLoading: boolean,
     error: string
 }
 
 type ActionType = {
     type: string,
-    payload: CoinsData[]
+    payload: SearchCoinsData[]
 }
 
 const initialState: InitialStateType = {
@@ -21,12 +19,13 @@ const initialState: InitialStateType = {
     isLoading: true,
     error: ""
 }
-
 const reducer = (state: InitialStateType, action: ActionType) => {
     switch (action.type) {
         case "LOADING":
             return { ...state, isLoading: true }
         case "SUCCESS":
+            return { isLoading: false, data: action.payload, error: "" }
+        case "CANCEL":
             return { isLoading: false, data: action.payload, error: "" }
         case "ERROR":
             return { isLoading: false, data: action.payload, error: "error eccured!" }
@@ -36,22 +35,41 @@ const reducer = (state: InitialStateType, action: ActionType) => {
     }
 }
 
-export const useFetchData = (page: number, currency: CurrencyType, id: string) => {
+const useSearchCoin = (query: string) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const { data, isLoading, error } = state
 
-    const getCoinsData = async () => {
+    const searchHandler = async () => {
         dispatch({ type: "LOADING", payload: [] })
         try {
-            const response = await api.get(`coins/markets?vs_currency=${currency}${id && `&ids=${id}`}&order=market_cap_desc${!id && `&per_page=10&page=${page.toString()}`}&${API_KEY}`)
-            dispatch({ type: "SUCCESS", payload: response.data })
+            const response = await api.get(`search?query=${query}&${API_KEY}`)
+            dispatch({ type: "SUCCESS", payload: response.data.coins })
         } catch (error) {
             dispatch({ type: "ERROR", payload: [] })
         }
+
     }
 
+
     useEffect(() => {
-        getCoinsData()
-    }, [page, currency, id])
+        if (!query) {
+            dispatch({ type: "CANCEL", payload: [] })
+            return
+        }
+
+
+        const timeOut = setTimeout(() => {
+            searchHandler()
+
+        }, 1000)
+
+        return () => clearTimeout(timeOut)
+    }, [query])
+
+
+
     return { data, isLoading, error }
 }
+
+
+export default useSearchCoin

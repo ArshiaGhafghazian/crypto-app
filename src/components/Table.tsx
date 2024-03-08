@@ -18,8 +18,6 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
     }
 
 
-
-
     return (
         <>
             <div className={styles.container}>
@@ -41,7 +39,7 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
                     </thead>
                     <tbody>
                         {error && <p className={styles.error}>{error}</p>}
-                        {coins.map(coin => (
+                        {coins.length && coins.map(coin => (
                             <tr key={coin.id}>
                                 <td onClick={() => alert(coin.id)}>
                                     <IconViewer />
@@ -53,11 +51,11 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
                                     </div>
                                 </td>
                                 <td>{coin.name}</td>
-                                <td>{currency == "usd" ? "$" : "€"} {coin.current_price.toLocaleString()}</td>
+                                <td>{currency == "usd" ? "$" : "€"} {coin.current_price ? coin.current_price.toLocaleString() : 'N/A'}</td>
                                 <td >
-                                    <span className={`${styles.priceChange} ${coin.price_change_percentage_24h > 0 ? styles.increase : styles.decrease}`}>% {coin.price_change_percentage_24h.toFixed(2)}</span>
+                                    <span className={`${styles.priceChange} ${coin.price_change_percentage_24h > 0 ? styles.increase : styles.decrease}`}>% {coin.price_change_percentage_24h ? coin.price_change_percentage_24h.toFixed(2) : "N/A"}</span>
                                 </td>
-                                <td>{currency == "usd" ? "$" : "€"} {coin.total_volume.toLocaleString()}</td>
+                                <td>{currency == "usd" ? "$" : "€"} {coin.total_volume ? coin.total_volume.toLocaleString() : "N/A"}</td>
                             </tr>
                         ))}
                     </tbody>

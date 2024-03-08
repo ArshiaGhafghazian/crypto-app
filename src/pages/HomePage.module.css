@@ -1,0 +1,13 @@
+.refresh {
+    max-width: 850px;
+    margin: 0 auto;
+   
+}
+
+
+
+@media (max-width: 900px) {
+    .refresh {
+        width: calc(100% - 50px);
+    }
+}

@@ -1,11 +1,13 @@
+import CoinsData from "../types/CoinsData.type"
 import styles from "./Pagination.module.css"
 
 type PaginationProps = {
+    coins: CoinsData[]
     pageNumber: number
     setPageNumber: React.Dispatch<React.SetStateAction<number>>
 }
 
-const Pagination = ({ pageNumber, setPageNumber }: PaginationProps) => {
+const Pagination = ({ coins, pageNumber, setPageNumber, }: PaginationProps) => {
 
     const firstPageHandler = () => {
         if (pageNumber <= 1) return
@@ -26,13 +28,16 @@ const Pagination = ({ pageNumber, setPageNumber }: PaginationProps) => {
     }
 
     return (
+
         <div className={styles.container}>
-            <button onClick={firstPageHandler} className={styles.button} disabled={pageNumber == 1}>First</button>
-            <button onClick={previousPageHandler} className={styles.button} disabled={pageNumber == 1}>Previous</button>
+
+            <button onClick={firstPageHandler} className={styles.button} disabled={pageNumber == 1 || coins.length < 8}>First</button>
+            <button onClick={previousPageHandler} className={styles.button} disabled={pageNumber == 1 || coins.length < 8}>Previous</button>
             <span>{pageNumber}</span>
-            <button onClick={nextPageHandler} className={styles.button} disabled={pageNumber == 30}>next</button>
-            <button onClick={lastPageHandler} className={styles.button} disabled={pageNumber == 30}>Last</button>
+            <button onClick={nextPageHandler} className={styles.button} disabled={pageNumber == 30 || coins.length < 8}>next</button>
+            <button onClick={lastPageHandler} className={styles.button} disabled={pageNumber == 30 || coins.length < 8}> Last</button >
         </div >
+
     )
 }
 
