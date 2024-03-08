@@ -1,0 +1,29 @@
+.container input {
+    background-color: var(--color-tirnary);
+    font-size: large;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    color: inherit;
+    transition: all 0.1s;
+}
+
+.container input::placeholder {
+    color: inherit;
+    font-size: medium;
+}
+.container input:focus {
+    box-shadow: 0px 0px 2px 1px rgba(186, 186, 193, 0.74) inset;
+}
+
+@media (max-width: 400px) {
+    .container input {
+        padding: 10px;
+        font-size: small;
+    }
+    .container input::placeholder {
+        color: inherit;
+        font-size: small;
+    }
+}

@@ -4,6 +4,7 @@ import { useFetchData } from "../hooks/useFetchData"
 import Table from "../components/Table";
 import Pagination from "../components/Pagination";
 import Spinner from "../components/Spinner";
+import Navbar from "../components/Navbar";
 
 export type CurrencyType = "usd" | "eur"
 
@@ -20,7 +21,9 @@ const HomePage = () => {
     return (
         <>
             {isLoading && <Spinner />}
-            <h1 style={{ marginBottom: "30px" }}>Crypto App</h1>
+
+            <Navbar />
+
             <Table coins={data} currency={currency} setCurrency={setCurrency} error={error} />
             <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
         </>

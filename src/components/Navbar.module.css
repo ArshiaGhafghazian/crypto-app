@@ -1,0 +1,23 @@
+.container {
+    background-color: inherit;
+    box-shadow: 0px -1px 6px 1px var(--color-tirnary);
+    margin-bottom: 50px;
+ 
+}
+
+.navbar {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media (max-width: 900px) {
+    .navbar {
+        width: calc(100% - 50px);
+    }
+}
