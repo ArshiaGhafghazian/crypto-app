@@ -15,13 +15,21 @@
     color: inherit;
     font-size: inherit;
     cursor: pointer;
+    transition: all 0.1s;
 }
 .container .button:disabled,
 .container .button:disabled:hover {
     background-color: rgb(131, 112, 158);
     cursor: not-allowed;
+    color: inherit;
 }
 
 .container .button:hover {
     background-color: rgba(85, 30, 161, 0.695);
+    color: white;
+}
+
+.container span {
+    font-size: large;
+    font-weight: 600;
 }

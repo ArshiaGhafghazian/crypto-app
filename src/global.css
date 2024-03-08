@@ -7,9 +7,11 @@
 :root {
     --color-primary: #030637;
     --color-secondary: #222673;
-    --color-tirnary: #3C0753;
+    --color-tirnary: #551ea1;
 
     --color-text: #c9c9c9;
+    --color-danger: #ff0000;
+    --color-success: #4c894c;
 }
 
 * {
@@ -20,9 +22,9 @@
 }
 
 body {
-  min-height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(
-      to bottom right,
+        to bottom right,
         var(--color-primary),
         var(--color-secondary)
     );

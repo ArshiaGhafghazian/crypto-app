@@ -1,6 +1,8 @@
 import { CurrencyType } from "../pages/HomePage"
 import CoinsData from "../types/CoinsData.type"
 import styles from "./Table.module.css"
+import IconViewer from "../assets/icons/IconViewer"
+
 
 type TableProps = {
     coins: CoinsData[]
@@ -15,12 +17,16 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
         setCurrency(event.target.value as CurrencyType)
     }
 
+
+
+
     return (
         <>
             <div className={styles.container}>
                 <table className={styles.table}>
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Coin</th>
                             <th>Name</th>
                             <th>Price
@@ -37,6 +43,9 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
                         {error && <p className={styles.error}>{error}</p>}
                         {coins.map(coin => (
                             <tr key={coin.id}>
+                                <td onClick={() => alert(coin.id)}>
+                                    <IconViewer />
+                                </td>
                                 <td>
                                     <div className={styles.symbolContainer}>
                                         <img src={coin.image} alt={coin.name} width={20} />
@@ -62,3 +71,4 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
 
 
 export default Table
+
