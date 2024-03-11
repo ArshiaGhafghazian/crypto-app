@@ -6,7 +6,6 @@ import Pagination from "../components/Pagination";
 import Spinner from "../components/Spinner";
 import Navbar from "../components/Navbar";
 import IconRefresh from "../assets/icons/IconRefresh";
-
 import styles from "./HomePage.module.css"
 import Chart from "../components/Chart";
 import api, { API_KEY } from "../services/config";
@@ -14,15 +13,12 @@ import ChartData from "../types/ChatsData.type";
 
 export type CurrencyType = "usd" | "eur"
 
-
 const HomePage = () => {
 
     const [pageNumber, setPageNumber] = useState<number>(1)
     const [currency, setCurrency] = useState<CurrencyType>("usd")
     const [id, setId] = useState<string>("")
     const [isOpen, setIsOpen] = useState<boolean>(false)
-
-
     const { data, isLoading, error } = useFetchData(pageNumber, currency, id)
     const [chartData, setChartData] = useState<ChartData>()
     const [loading, setLoading] = useState<boolean>(false)
@@ -40,7 +36,6 @@ const HomePage = () => {
             setLoading(false)
         }
     }
-
 
     return (
         <>

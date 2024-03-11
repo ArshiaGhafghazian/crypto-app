@@ -21,14 +21,55 @@
     border: 1px solid rgb(158, 155, 155);
 }
 
+.innerContainer::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+.innerContainer::-webkit-scrollbar-track {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #aca2ac;
+}
+
+.innerContainer::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--color-tirnary);
+}
+
 .innerContainer {
     position: relative;
     overflow: auto;
-    min-height: 320px;
+    min-height: 330px;
 }
 .icon {
     cursor: pointer;
     display: inline-block;
+    margin: 5px;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.buttonsContainer button {
+    padding: 6px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-tirnary);
+    color: inherit;
+    transition: all 0.1s;
+}
+.buttonsContainer button:hover {
+    background-color: rgb(161, 156, 170);
+    color: white;
+}
+.buttonsContainer button.activeButton {
+    background-color: rgb(175, 174, 174);;
+    color: var(--color-tirnary);
 }
 
 .customTooltip {
