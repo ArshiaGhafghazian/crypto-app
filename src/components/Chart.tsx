@@ -4,7 +4,6 @@ import ChartData from "../types/ChatsData.type"
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, } from 'recharts';
 import Spinner from "./Spinner";
-import { CurrencyType } from "../pages/HomePage";
 
 
 type ChartProps = {
