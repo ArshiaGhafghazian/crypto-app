@@ -47,11 +47,16 @@
     margin: 5px;
 }
 
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .buttonsContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 .buttonsContainer button {
     padding: 6px;

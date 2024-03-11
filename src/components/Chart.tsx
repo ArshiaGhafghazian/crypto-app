@@ -10,6 +10,7 @@ type ChartProps = {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
     chartData: ChartData | undefined
     loading: boolean
+    graphError: string
 
 }
 
@@ -19,7 +20,7 @@ interface CustomTooltipProps {
     label?: string;
 }
 
-const Chart = ({ setIsOpen, chartData, loading }: ChartProps) => {
+const Chart = ({ setIsOpen, chartData, loading, graphError }: ChartProps) => {
 
     const [chartDataCount, setChartDataCount] = useState<7 | 14 | 21>(7)
     let data = chartData?.prices?.slice((-chartDataCount - 1), -1).map(price => {
@@ -44,13 +45,15 @@ const Chart = ({ setIsOpen, chartData, loading }: ChartProps) => {
                 <div className={styles.icon} onClick={closeModal}>
                     <IconClose />
                 </div>
+                <h1>Price Graph</h1>
                 <div className={styles.buttonsContainer}>
-                    <button  className={chartDataCount === 7 ? styles.activeButton : ''} onClick={() => setChartDataCount(7)}>Last 7 days</button>
+                    <button className={chartDataCount === 7 ? styles.activeButton : ''} onClick={() => setChartDataCount(7)}>Last 7 days</button>
                     <button className={chartDataCount === 14 ? styles.activeButton : ''} onClick={() => setChartDataCount(14)}>Last 14 days</button>
                     <button className={chartDataCount === 21 ? styles.activeButton : ''} onClick={() => setChartDataCount(21)}>Last 21 days</button>
                 </div>
                 <div className={styles.innerContainer}>
-                    {loading ? <Spinner /> : <LineChart
+                    {!loading && graphError && <h1>Error</h1>}
+                    {loading && !graphError ? <Spinner /> : <LineChart
                         width={500}
                         height={300}
                         data={data}
@@ -68,7 +71,7 @@ const Chart = ({ setIsOpen, chartData, loading }: ChartProps) => {
 
                         <Line type="monotone" dataKey="price" stroke="var(--color-tirnary)" strokeWidth={4} />
                     </LineChart>}
-
+                    
                 </div>
             </div>
         </div>
