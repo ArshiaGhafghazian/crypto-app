@@ -1,8 +1,8 @@
 import { useEffect, useReducer } from "react"
 import SearchCoinsData from "../types/SearchCoinsData.type"
-import api from "../services/config"
+import api, { API_KEY } from "../services/config"
 
-const API_KEY = "x_cg_demo_api_key=CG-ZyWD5vW2foiYE8WTsw4zHCqz"
+
 type InitialStateType = {
     data: SearchCoinsData[],
     isLoading: boolean,

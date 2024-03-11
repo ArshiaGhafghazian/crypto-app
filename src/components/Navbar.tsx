@@ -6,6 +6,7 @@ type NavbarProps = {
 }
 
 const Navbar = ({ setId }: NavbarProps) => {
+
     return (
         <nav className={styles.container}>
             <div className={styles.navbar}>

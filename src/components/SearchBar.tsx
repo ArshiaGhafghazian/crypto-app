@@ -8,6 +8,8 @@ type SearchBarProps = {
     setId: React.Dispatch<React.SetStateAction<string>>
 }
 const SearchBar = ({ setId }: SearchBarProps) => {
+
+ 
     const [value, setValue] = useState<string>("")
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { data, error, isLoading } = useSearchCoin(value)

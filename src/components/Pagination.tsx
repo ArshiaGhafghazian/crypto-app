@@ -9,6 +9,7 @@ type PaginationProps = {
 
 const Pagination = ({ coins, pageNumber, setPageNumber, }: PaginationProps) => {
 
+
     const firstPageHandler = () => {
         if (pageNumber <= 1) return
         setPageNumber(1)

@@ -1,0 +1,48 @@
+.modal {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 4;
+    backdrop-filter: blur(4px);
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: var(--color-secondary);
+    max-width: 850px;
+    width: 540px;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid rgb(158, 155, 155);
+}
+
+.innerContainer {
+    position: relative;
+    overflow: auto;
+    min-height: 320px;
+}
+.icon {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.customTooltip {
+    background-color: rgba(128, 128, 128, 0.245);
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+}
+.customTooltip p:nth-child(1) {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        max-width: calc(100% - 50px);
+    }
+}

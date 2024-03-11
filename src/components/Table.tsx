@@ -9,9 +9,11 @@ type TableProps = {
     currency: CurrencyType
     setCurrency: React.Dispatch<React.SetStateAction<CurrencyType>>
     error: string
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    getChartData: (id: string) => Promise<void>
 }
 
-const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
+const Table = ({ coins, currency, setCurrency, error, setIsOpen, getChartData }: TableProps) => {
 
     const changeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCurrency(event.target.value as CurrencyType)
@@ -39,9 +41,12 @@ const Table = ({ coins, currency, setCurrency, error }: TableProps) => {
                     </thead>
                     <tbody>
                         {error && <p className={styles.error}>{error}</p>}
-                        {coins.length && coins.map(coin => (
+                        {coins.length > 0 && coins.map(coin => (
                             <tr key={coin.id}>
-                                <td onClick={() => alert(coin.id)}>
+                                <td onClick={() => {
+                                    setIsOpen(true)
+                                    getChartData(coin.id)
+                                }}>
                                     <IconViewer />
                                 </td>
                                 <td>

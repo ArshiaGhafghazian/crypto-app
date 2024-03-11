@@ -1,9 +1,9 @@
 import { useEffect, useReducer } from 'react'
 import CoinsData from '../types/CoinsData.type'
-import api from '../services/config'
+import api, { API_KEY } from '../services/config'
 import { CurrencyType } from '../pages/HomePage'
 
-const API_KEY = "x_cg_demo_api_key=CG-ZyWD5vW2foiYE8WTsw4zHCqz"
+
 
 type InitialStateType = {
     data: CoinsData[],
