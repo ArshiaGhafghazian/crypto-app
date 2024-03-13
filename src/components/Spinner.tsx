@@ -1,10 +1,9 @@
 import styles from "./Spinner.module.css"
 
-const Spinner = () => {
+const Spinner: React.FC = () => {
     return (
-        <div className={styles.container}>
+        <div data-testid="spinner" className={styles.container}>
             <div className={styles.spinner}></div>
-
         </div>
     )
 }
